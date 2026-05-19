@@ -1,29 +1,28 @@
-
-
-
-
-<link rel="stylesheet" href='/assets/css/cms.css' />
-<section id='cms'>
- {% block body %}
-<div class="cms-container main-content-wrapper">
-  <div class="main-content">
-    {% if collections.post | length == 0 %}
-    <h1>No Recent Posts</h1>
-    {% else %} {%- for post in collections.post | reverse -%}
-    <article class="recent-articles">
-      
-      <div class="article-group">
-        <div class="cms-authorGroup">
-        
-          <span class="cms-author">{{ post.data.author }}</span>
-          <span aria-hidden="true" class="cms-dot"></span>
-        </div>
-        <h2 class="cms-h1">{{ post.data.title }}</h2>
+<link rel="stylesheet" href="/assets/css/cms.css" />
+<section id="cms">
+  {% block body %}
+  <div class="cms-container main-content-wrapper">
+    <div class="main-content">
+      {% if collections.post | length == 0 %}
+      <h1>No Recent Posts</h1>
+      {% else %} {%- for post in collections.post | reverse -%}
+      <div>
+        <picture>
+          <img
+            src="{{ post.data.image }}"
+            alt="{{ post.data.imageAlt }}"
+            width="795"
+            height="400"
+            decoding="async"
+          />
+        </picture>
+        <span>{{ post.data.delivery }}</span>
+        <span>{{ post.data.specification }}</span>
+        <span>{{ post.data.brand }}</span>
+        <span>{{ post.data.price }}</span>
       </div>
-    </article>
-    {%- endfor -%} {% endif %}
+      {%- endfor -%} {% endif %}
+    </div>
   </div>
-
-</div>
-{% endblock %}
+  {% endblock %}
 </section>
