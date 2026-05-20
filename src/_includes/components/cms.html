@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="/assets/css/cms.css" />
 <section id="cms">
   {% block body %}
-  <div class="cms-container main-content-wrapper">
-    <div class="main-content">
+  <div class="cs-container">
+    <div class="cs-content">
       {% if collections.post | length == 0 %}
       <h1>No Recent Posts</h1>
       {% else %} {%- for post in collections.post | reverse -%}
-      <div>
+      <div class="cs-product">
         <picture>
           <img
             src="{{ post.data.image }}"
